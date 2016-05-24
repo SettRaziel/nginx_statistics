@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-09 22:01:56
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-05-10 16:20:16
+# @Last Modified time: 2016-05-22 15:40:07
 
 require 'time'
 
@@ -40,8 +40,8 @@ class Entry
   # method to get a formatted string
   # @return [String] the formatted entry string
   def to_string
-    "#{@source}; #{@remote_user}; #{@timestamp}; #{@http_request}; "\
-    "#{@http_status}; #{@element_size} byte; #{@http_referer};\n#{@user_agent}"
+    "#{@source} #{@remote_user} #{@timestamp} #{@http_request} "\
+    "#{@http_status} #{@element_size} byte #{@http_referer}\n#{@user_agent}"
   end
 
   private
