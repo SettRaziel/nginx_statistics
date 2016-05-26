@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-08 17:05:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-05-14 11:03:23
+# @Last Modified time: 2016-05-26 11:42:37
 
 require_relative 'file_reader'
 require_relative 'entry'
@@ -63,7 +63,7 @@ class DataRepository
   # @return [DataSeries] the data series created by the data input
   def create_entries(data)
     data.each { |line|
-      @repository << Entry.new(line) if (!line.empty?)
+      @repository << Entry::Entry.new(line) if (!line.empty?)
     }
   end
 
