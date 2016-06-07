@@ -1,22 +1,22 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-14 21:10:58
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-05-21 13:49:35
+# @Last Modified time: 2016-06-07 09:31:24
 
 # This module holds classes that read and store the usable script arguments
-module parameter
+module Parameter
 
   class ParameterRepository
     # @return [Hash] Hash of valid parameters and their values
     attr_reader :parameters
 
     # initialization
-    # @param [Array] argv Array of input parameters
+    # @param [Array] arguments Array of input parameters
     def initialize(arguments)
       @parameters = Hash.new()
       unflagged_arguments = [:file]
       has_read_file = false
-      argv.each { |arg|
+      arguments.each { |arg|
         has_read_file?(has_read_file)
 
         has_read_file =  process_argument(arg, unflagged_arguments)
@@ -29,7 +29,7 @@ module parameter
     # @param [String] arg the given argument
     # @param [Array] unflagged_arguments the argument array
     # @return [boolean] if the size of the argument array is zero or not
-    def process_arguments(arg)
+    def process_argument(arg, unflagged_arguments)
       case arg
         when '--timestamp'        then set_mode(:timestamp)
         when '--source'           then set_mode(:source)
