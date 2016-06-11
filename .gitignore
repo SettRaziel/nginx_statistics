@@ -1,3 +1,9 @@
 # Gitignore
+
+# ignore folders
 dev/
 files/
+
+# ignore documentation files
+.yardoc/
+doc/
