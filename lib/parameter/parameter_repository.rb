@@ -1,7 +1,9 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-14 21:10:58
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-07 09:31:24
+# @Last Modified time: 2016-06-16 18:33:40
+
+require_relative '../output/string'
 
 # This module holds classes that read and store the usable script arguments
 module Parameter
@@ -21,6 +23,7 @@ module Parameter
 
         has_read_file =  process_argument(arg, unflagged_arguments)
       }
+      has_set_mode?
     end
 
     private
@@ -36,7 +39,7 @@ module Parameter
         when '--status'           then set_mode(:http_status)
         when '--request'          then set_mode(:http_request)
         when '-v', '--version'    then @parameters[:version] = true
-        when '-h', '--help'       then @parameters[:help] = true
+        when '-h', '--help'       then check_and_set_helpvalue
         when /-[a-z]|--[a-z]+/ then raise_invalid_parameter(arg)
       else
         check_and_set_argument(unflagged_arguments.shift, arg)
@@ -49,7 +52,7 @@ module Parameter
     # @param [String] arg invalid parameter string
     # @raise [ArgumentError] if an invalid argument is provided
     def raise_invalid_parameter(arg)
-      raise ArgumentError, " Error: invalid argument: #{arg}"
+      raise ArgumentError, " Error: invalid argument: #{arg}".red
     end
 
     # method to check and set the requested working mode
@@ -59,7 +62,14 @@ module Parameter
       if (!@parameters[:mode])
         @parameters[:mode] = symbol
       else
-        raise ArgumentError, 'Error: Mode has already been set.'
+        raise ArgumentError, 'Error: Mode has already been set.'.red
+      end
+    end
+
+    # method to check if a mode has been specified in the input parameters
+    def has_set_mode?
+      if (!@parameters[:mode] && !@parameters[:help])
+        raise ArgumentError, 'Error: No mode has been specified.'.red
       end
     end
 
@@ -72,7 +82,7 @@ module Parameter
       if (read_file)
           raise ArgumentError,
                 " Error: found filepath: #{@parameters[:file]}," \
-                " but there are other arguments left."
+                " but there are other arguments left.".red
       end
     end
 
@@ -88,7 +98,19 @@ module Parameter
           @parameters[arg_key] = arg
         end
       else
-        raise ArgumentError, ' Error: invalid combination of parameters.'
+        raise ArgumentError, ' Error: invalid combination of parameters.'.red
+      end
+    end
+
+    # checks if the help parameter was entered with a parameter of if the
+    # general help information is requested
+    def check_and_set_helpvalue
+      if(@parameters.keys.last != nil)
+        # help in context to a parameter
+        @parameters[:help] = @parameters.keys.last
+      else
+        # help without parameter => global help
+        @parameters[:help] = true
       end
     end
 
