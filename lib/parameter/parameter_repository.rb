@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-14 21:10:58
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-16 18:33:40
+# @Last Modified time: 2016-06-19 13:10:49
 
 require_relative '../output/string'
 
@@ -68,7 +68,8 @@ module Parameter
 
     # method to check if a mode has been specified in the input parameters
     def has_set_mode?
-      if (!@parameters[:mode] && !@parameters[:help])
+      if (!@parameters[:mode] &&
+          !(@parameters[:help] | @parameters[:version]))
         raise ArgumentError, 'Error: No mode has been specified.'.red
       end
     end
