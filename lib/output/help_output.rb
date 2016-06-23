@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-01-18 14:29:41
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-18 16:27:20
+# @Last Modified time: 2016-06-23 19:37:39
 
 require_relative 'string'
 
@@ -17,6 +17,7 @@ class HelpOutput
       puts 'nginx_statistic help:'.light_yellow + "\n#{@parameters[parameter]}"
     elsif (parameter)
       print_help
+      print_additions
     else
       raise ArgumentError,
             " Error: help entry for #{parameter} does not exist".red
@@ -37,8 +38,7 @@ class HelpOutput
   # method to specify and add the help entries with help text only
   def self.add_single_help_entries
     add_simple_text(:help, ' -h, --help     ', 'show help text')
-    add_simple_text(:version,
-                    ' -v, --version  ',
+    add_simple_text(:version, ' -v, --version  ',
                     'prints the current version of the project')
   end
 
@@ -59,14 +59,21 @@ class HelpOutput
 
   # method to print the default help text
   def self.print_help
-    puts 'script usage:'.red + " ruby <script> "
+    puts 'script usage:'.red + " ruby <script> <criteria> <filename>"
     puts 'help usage :'.green + "  ruby <script> (-h | --help)"
     puts "\nnginx_statistic help:".light_yellow
 
     @parameters.each_value { |value|
       puts value
     }
+  end
 
+  def self.print_additions
+    puts 'Available index criteria:'.light_yellow
+    puts '--request'.light_blue + '   create index based on the http request'
+    puts '--status'.light_blue + '    create index based on the http status'
+    puts '--source'.light_blue + '    create index based on the source address'
+    puts '--timestamp'.light_blue + ' create index based on the timestamp'
   end
 
 end

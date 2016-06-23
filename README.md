@@ -6,12 +6,17 @@ timestamp of the entry, the source ip, the http status and the http request.
 
 ## Usage & Help
 ```
-script usage: ruby <script>
+script usage: ruby <script> <criteria> <filename>
 help usage :  ruby <script> (-h | --help)
 
 nginx_statistic help:
  -h, --help     show help text
  -v, --version  prints the current version of the project
+Available index criteria:
+--request       create index based on the http request
+--status        create index based on the http status
+--source        create index based on the source address
+--timestamp     create index based on the timestamp
 ```
 
 ## Documentation
