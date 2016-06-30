@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-14 21:10:58
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-19 13:10:49
+# @Last Modified time: 2016-06-30 15:30:14
 
 require_relative '../output/string'
 
@@ -70,7 +70,7 @@ module Parameter
     def has_set_mode?
       if (!@parameters[:mode] &&
           !(@parameters[:help] | @parameters[:version]))
-        raise ArgumentError, 'Error: No mode has been specified.'.red
+          puts 'Warning: No mode has been specified. Using --status.'.yellow
       end
     end
 
@@ -91,6 +91,7 @@ module Parameter
     # depending on the check
     # @param [Symbol] arg_key the symbol referencing a parameter
     # @param [String] arg the argument from the input array
+    # @raise [ArgumentError] if the combination of parameters is invalid
     def check_and_set_argument(arg_key, arg)
       if (arg_key != nil)
         if(@parameters[arg_key] != nil)
