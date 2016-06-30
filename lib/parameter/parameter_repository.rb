@@ -1,13 +1,16 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-14 21:10:58
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-30 15:30:14
+# @Last Modified time: 2016-06-30 16:00:26
 
 require_relative '../output/string'
 
 # This module holds classes that read and store the usable script arguments
 module Parameter
 
+  # Parameter repository to store the valid parameters of the script.
+  # {#initialize} gets the provided parameters and fills a hash which
+  # grants access to the provided parameters and their arguments
   class ParameterRepository
     # @return [Hash] Hash of valid parameters and their values
     attr_reader :parameters
@@ -69,7 +72,7 @@ module Parameter
     # method to check if a mode has been specified in the input parameters
     def has_set_mode?
       if (!@parameters[:mode] &&
-          !(@parameters[:help] | @parameters[:version]))
+          !(@parameters[:help] || @parameters[:version]))
           puts 'Warning: No mode has been specified. Using --status.'.yellow
       end
     end
