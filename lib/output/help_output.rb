@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-01-18 14:29:41
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-23 19:37:39
+# @Last Modified time: 2016-06-30 17:05:39
 
 require_relative 'string'
 
@@ -68,6 +68,7 @@ class HelpOutput
     }
   end
 
+  # method to print additional information about the index attributes
   def self.print_additions
     puts 'Available index criteria:'.light_yellow
     puts '--request'.light_blue + '   create index based on the http request'
