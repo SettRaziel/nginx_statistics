@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-01-18 14:29:41
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-30 17:05:39
+# @Last Modified time: 2016-07-01 18:01:16
 
 require_relative 'string'
 
@@ -72,7 +72,8 @@ class HelpOutput
   def self.print_additions
     puts 'Available index criteria:'.light_yellow
     puts '--request'.light_blue + '   create index based on the http request'
-    puts '--status'.light_blue + '    create index based on the http status'
+    print '--status'.light_blue
+    puts '    create index based on the http status ' + '(default)'.yellow
     puts '--source'.light_blue + '    create index based on the source address'
     puts '--timestamp'.light_blue + ' create index based on the timestamp'
   end
