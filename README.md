@@ -14,7 +14,7 @@ nginx_statistic help:
  -v, --version  prints the current version of the project
 Available index criteria:
 --request       create index based on the http request
---status        create index based on the http status
+--status        create index based on the http status (default)
 --source        create index based on the source address
 --timestamp     create index based on the timestamp
 ```
@@ -36,5 +36,10 @@ Written with Ruby >= 2.3
 
 ## License
 see LICENSE
+
+## Roadmap
+* adding query against an index to get result for a given key
+* graphical output for the total occurrence of keys or other entry attributes
+* evaluations for a given time interval
 
 created by: Benjamin Held
