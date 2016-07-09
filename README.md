@@ -22,6 +22,7 @@ Available index criteria:
 ## Documentation
 Documentation is written in yard and can be created by running the shell-script
 `create_yard.sh`. Yard needs to be installed on the system in order to do that.
+Online documentation follows.
 
 ## Used version
 Written with Ruby >= 2.3
