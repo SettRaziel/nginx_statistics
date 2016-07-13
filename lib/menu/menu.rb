@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-11 14:01:19
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-11 15:09:59
+# @Last Modified time: 2016-07-13 18:52:13
 
 module Menu
 
@@ -57,7 +57,10 @@ module Menu
     end
 
     # method to add a given key/value pair to the menu hash
-    def add_menu_item(index, description)
+    # @param [String] description the description of the menu item
+    # @param [Integer] index the index that should be used as key
+    def add_menu_item(description, index=nil)
+      index = @menu_items.length + 1 if (index == nil)
       @menu_items[index] = description
     end
 
