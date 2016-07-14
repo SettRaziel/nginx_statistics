@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-08 17:05:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-29 15:32:26
+# @Last Modified time: 2016-07-14 17:46:04
 
 require_relative 'file_reader'
 require_relative 'entry'
@@ -50,6 +50,20 @@ class DataRepository
     result = Hash.new()
     @index.each_key { |key|
       result[key] = @index[key].size
+    }
+    return result
+  end
+
+  # method to get all entries for a given value in the given entry attribute
+  # @param [Symbol] criteria the required entry attribute
+  # @param [Object] key the search value
+  # @return [Array] an array with all entries machting the key in the considere
+  #    entry attribute
+  def get_entries_to(criteria, key)
+    result = Array.new()
+    @repository.each { |entry|
+      attribute = Entry::EntryAttributeFactory.get_attribute_to(criteria, entry)
+      result << entry if (key.eql?(attribute))
     }
     return result
   end
