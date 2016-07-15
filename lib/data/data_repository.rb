@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-08 17:05:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-14 17:46:04
+# @Last Modified time: 2016-07-15 22:36:34
 
 require_relative 'file_reader'
 require_relative 'entry'
@@ -19,15 +19,12 @@ class DataRepository
   # @param [String] filename the filepath
   # @param [Symbol] key the attribute for the index
   def initialize(filename, key = nil)
+    key = :http_status if (key == nil)
     @index = Hash.new()
     @repository = Array.new()
     begin
       create_entries(read_file(filename))
-      if (key != nil)
-        create_mapping(key)
-      else
-        create_mapping(:http_status)
-      end
+      create_index(key)
     rescue Exception => e
       puts "Error: #{e.message}".red
     end
@@ -68,6 +65,16 @@ class DataRepository
     return result
   end
 
+  # creates an index, mapping all {Entry}s
+  # @param [Symbol] key the index attribute
+  def create_index(key)
+    @repository.each { |entry|
+        mapped_key = map_key_to_attribute(key, entry)
+        @index[mapped_key] = Array.new() if (!@index[mapped_key])
+        @index[mapped_key] << entry
+    }
+  end
+
   private
 
   # creates {Entry}s of the parsed data and stores it in the repository
@@ -75,16 +82,6 @@ class DataRepository
   def create_entries(data)
     data.each { |line|
       @repository << Entry::Entry.new(line) if (!line.empty?)
-    }
-  end
-
-  # creates an index, mapping all {Entry}s
-  # @param [Symbol] key the index attribute
-  def create_mapping(key)
-    @repository.each { |entry|
-        mapped_key = map_key_to_attribute(key, entry)
-        @index[mapped_key] = Array.new() if (!@index[mapped_key])
-        @index[mapped_key] << entry
     }
   end
 
