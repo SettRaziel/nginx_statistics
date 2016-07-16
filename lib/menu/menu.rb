@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-11 14:01:19
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-13 18:52:13
+# @Last Modified time: 2016-07-16 09:10:55
 
 module Menu
 
@@ -37,15 +37,16 @@ module Menu
     # @abstract subclasses need to implement this method
     # @raise [NotImplementedError] if the subclass does not have this method
     def define_menu_items
-      fail NotImplementedError, " Error: the subclass "
+      fail NotImplementedError, " Error: the subclass " \
         "#{self.name.split('::').last} needs to implement the method: " \
         "define_menu_items from its base class".red
     end
 
     # @abstract subclasses need to implement this method
+    # @param [Number] input the provided user input
     # @raise [NotImplementedError] if the subclass does not have this method
-    def determine_action
-      fail NotImplementedError, " Error: the subclass "
+    def determine_action(input)
+      fail NotImplementedError, " Error: the subclass " \
         "#{self.name.split('::').last} needs to implement the method: " \
         "determine_action from its base class".red
     end
