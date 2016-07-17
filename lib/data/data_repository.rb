@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-08 17:05:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-15 22:36:34
+# @Last Modified time: 2016-07-17 12:06:35
 
 require_relative 'file_reader'
 require_relative 'entry'
@@ -25,7 +25,7 @@ class DataRepository
     begin
       create_entries(read_file(filename))
       create_index(key)
-    rescue Exception => e
+    rescue StandardError => e
       puts "Error: #{e.message}".red
     end
   end
