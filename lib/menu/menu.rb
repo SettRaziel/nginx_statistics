@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-11 14:01:19
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-16 09:10:55
+# @Last Modified time: 2016-07-20 18:31:59
 
 module Menu
 
@@ -10,9 +10,11 @@ module Menu
   class Base
 
     # initialization
-    def initialize
+    def initialize(description=nil)
       @menu_items = Hash.new()
-      @menu_description = "Default menu. Please add description: "
+      if (description == nil)
+        @menu_description = "Default menu. Please add description: "
+      end
       define_menu_items
       @menu_items = Hash[@menu_items.sort]
     end
