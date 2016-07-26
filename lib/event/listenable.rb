@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-14 18:05:20
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-24 18:28:21
+# @Last Modified time: 2016-07-26 15:18:08
 
 # module to implement simple event handling and notifying
 module Listenable
@@ -29,7 +29,7 @@ module Listenable
   # method to send a notification to all listeners which respond to the
   # given event
   def notify_listeners(event_name, *args)
-    listeners.each { |listener|
+    listeners.each_value { |listener|
       if listener.respond_to?(event_name)
         listener.__send__(event_name, *args)
       end
