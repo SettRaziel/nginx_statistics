@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-11 14:01:19
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-20 18:31:59
+# @Last Modified time: 2016-07-28 16:21:08
 
 module Menu
 
@@ -78,3 +78,5 @@ module Menu
   end
 
 end
+
+require_relative 'index_menu'
