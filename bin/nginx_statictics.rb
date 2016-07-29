@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-06-07 09:15:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-09 08:42:43
+# @Last Modified time: 2016-07-29 18:18:46
 
 require_relative '../lib/data/data_repository'
 require_relative '../lib/parameter/parameter_repository'
@@ -44,7 +44,7 @@ begin
       puts "Found: #{entry[0]} #{entry[1]} times"
     }
   end
-rescue Exception => e
+rescue StandardError => e
   puts e.message
   puts 'For help type: ruby <script> --help'.green
   exit(0)
