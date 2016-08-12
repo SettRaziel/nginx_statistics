@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-15 15:43:54
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-31 16:57:16
+# @Last Modified time: 2016-08-12 15:58:31
 
 require_relative '../output/string'
 
@@ -33,10 +33,10 @@ class RepositoryListener
   # method to generate the ranking over the index and print its results
   def generate_and_print_index
     ranking = Statistic.generate_ranking_for_index(@data_repository.index, 10)
-    puts 'number of occurence; entry content'.yellow
+    puts 'Output as: number of occurence | entry content'.yellow
     ranking.each { |entry|
-      print ("%5s ").red % [entry[1]]
-      puts ("times: #{(entry[0]).magenta.bright} ")
+      print "%5s ".red % [entry[1]]
+      puts "times: #{(entry[0]).to_s.magenta} "
     }
   end
 
