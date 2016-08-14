@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-08 17:05:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-17 12:06:35
+# @Last Modified time: 2016-08-14 10:24:00
 
 require_relative 'file_reader'
 require_relative 'entry'
@@ -68,6 +68,7 @@ class DataRepository
   # creates an index, mapping all {Entry}s
   # @param [Symbol] key the index attribute
   def create_index(key)
+    @index = Hash.new() if (!@index.empty?)
     @repository.each { |entry|
         mapped_key = map_key_to_attribute(key, entry)
         @index[mapped_key] = Array.new() if (!@index[mapped_key])
