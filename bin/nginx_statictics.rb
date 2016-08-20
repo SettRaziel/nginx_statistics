@@ -1,13 +1,15 @@
 # @Author: Benjamin Held
 # @Date:   2016-06-07 09:15:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-29 18:18:46
+# @Last Modified time: 2016-08-20 10:36:37
 
 require_relative '../lib/data/data_repository'
 require_relative '../lib/parameter/parameter_repository'
 require_relative '../lib/statistic/statistic.rb'
 require_relative '../lib/output/help_output'
 require_relative '../lib/output/string'
+require_relative '../lib/event/repository_listener'
+require_relative '../lib/menu/menu'
 
 # call to print version number and author
 def print_version
@@ -38,11 +40,17 @@ begin
     dr = DataRepository.new(parameters.parameters[:file],
                             parameters.parameters[:mode])
 
-    ranking = Statistic.generate_ranking_for_index(dr.index, 10)
+    # necessary to clear the script parameter, which has already been
+    # processed by the parameter_repository
+    ARGF.argv.clear
 
-    ranking.each { |entry|
-      puts "Found: #{entry[0]} #{entry[1]} times"
-    }
+    rl = RepositoryListener.new(dr)
+
+    menu = Menu::MainMenu.new()
+    rl.listen_to(menu)
+    while (true)
+      menu.print_menu
+    end
   end
 rescue StandardError => e
   puts e.message
