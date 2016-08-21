@@ -1,11 +1,10 @@
 # @Author: Benjamin Held
 # @Date:   2016-06-07 09:15:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-08-20 10:36:37
+# @Last Modified time: 2016-08-21 22:34:41
 
 require_relative '../lib/data/data_repository'
 require_relative '../lib/parameter/parameter_repository'
-require_relative '../lib/statistic/statistic.rb'
 require_relative '../lib/output/help_output'
 require_relative '../lib/output/string'
 require_relative '../lib/event/repository_listener'

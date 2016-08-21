@@ -1,9 +1,10 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-15 15:43:54
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-08-12 15:58:31
+# @Last Modified time: 2016-08-21 22:35:06
 
 require_relative '../output/string'
+require_relative '../statistic/statistic.rb'
 
 # helper class which create a connection between event handling and the
 # {DataRepository}
