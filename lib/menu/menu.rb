@@ -1,12 +1,13 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-11 14:01:19
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-08-28 17:06:04
+# @Last Modified time: 2016-08-30 11:34:11
 
 module Menu
 
   require_relative '../output/string'
 
+  # abstract parent class for the menu hierarchy
   class Base
 
     # initialization
