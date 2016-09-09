@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-08 17:05:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-08-14 10:24:00
+# @Last Modified time: 2016-09-09 19:00:08
 
 require_relative 'file_reader'
 require_relative 'entry'
@@ -51,10 +51,18 @@ class DataRepository
     return result
   end
 
+  # method to return all entries with the key from the index
+  # @param [Object] key the search value
+  # @return [Array] an array with all entries machting the key in the
+  #    index criteria
+  def get_entries_from_index_to(key)
+    get_entries_to(@index_criteria, key)
+  end
+
   # method to get all entries for a given value in the given entry attribute
   # @param [Symbol] criteria the required entry attribute
   # @param [Object] key the search value
-  # @return [Array] an array with all entries machting the key in the considere
+  # @return [Array] an array with all entries machting the key in the considered
   #    entry attribute
   def get_entries_to(criteria, key)
     result = Array.new()
@@ -68,6 +76,7 @@ class DataRepository
   # creates an index, mapping all {Entry}s
   # @param [Symbol] key the index attribute
   def create_index(key)
+    @index_criteria = key
     @index = Hash.new() if (!@index.empty?)
     @repository.each { |entry|
         mapped_key = map_key_to_attribute(key, entry)
@@ -77,6 +86,9 @@ class DataRepository
   end
 
   private
+
+  # @return [Symbol] the symbol that represents the current index
+  attr_reader :index_criteria
 
   # creates {Entry}s of the parsed data and stores it in the repository
   # @param [Array] data the read data
