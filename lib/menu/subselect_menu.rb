@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-13 10:12:17
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-08-27 17:24:56
+# @Last Modified time: 2016-09-11 18:40:37
 
 module Menu
 
@@ -14,10 +14,15 @@ module Menu
       super
     end
 
+    def change_index(criteria)
+      @criteria = criteria
+    end
+
     private
 
     # @return [Array] an array that holds arrays of size two with [value, rank]
     attr :ranking
+    attr :criteria
 
     def define_menu_items
       @ranking.each { |entry|
@@ -28,11 +33,18 @@ module Menu
     end
 
     def determine_action(input)
-      case (input.to_i)
-        when @menu_items.size then return false
+      input_number = input.to_i
+      case
+        when (input_number == @menu_items.size) then return false
+        when (input.to_i > @menu_items.size) || (input.to_i < 1)
+          puts "Invalid input. Please try again."
+          return false
         else
+          index_menu = Menu::IndexMenu.new()
+          index_menu.add_listener(:subselect_menu, self)
+          index_menu.print_menu
           notify_listeners(:generate_and_print_subselect,
-                           @ranking[input.to_i][0])
+                           @ranking[input.to_i - 1][0], @criteria)
       end
     end
 
