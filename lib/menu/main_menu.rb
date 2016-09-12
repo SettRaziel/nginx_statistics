@@ -1,11 +1,12 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-14 17:40:05
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-08-01 15:35:52
+# @Last Modified time: 2016-09-12 19:20:57
 
 module Menu
 
   require_relative '../event/listenable'
+  require_relative '../output/string'
 
   class MainMenu < Base
     include Listenable
@@ -18,7 +19,8 @@ module Menu
     def define_menu_items
       add_menu_item('Create different index.', 1)
       add_menu_item('Print current index.', 2)
-      add_menu_item('Quit.', 3)
+      add_menu_item('Subselect index.', 3)
+      add_menu_item('Quit.', 4)
     end
 
     def determine_action(input)
@@ -30,6 +32,9 @@ module Menu
         when 2
           notify_listeners(:generate_and_print_index)
         when 3
+          notify_listeners(:initialize_subselect)
+        when 4
+          puts "Shutting down. Goodbye ...".yellow
           exit(0)
       end
     end
