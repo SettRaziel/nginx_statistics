@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-11 14:01:19
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-08-30 11:34:11
+# @Last Modified time: 2016-09-13 19:35:41
 
 module Menu
 
@@ -46,7 +46,7 @@ module Menu
     end
 
     # @abstract subclasses need to implement this method
-    # @param [Number] input the provided user input
+    # @param [String] input the provided user input
     # @raise [NotImplementedError] if the subclass does not have this method
     def determine_action(input)
       fail NotImplementedError, " Error: the subclass " \
