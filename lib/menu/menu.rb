@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-11 14:01:19
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-09-13 19:35:41
+# @Last Modified time: 2016-09-15 20:06:42
 
 module Menu
 
@@ -11,6 +11,7 @@ module Menu
   class Base
 
     # initialization
+    # @param [String] description the headline of the menu
     def initialize(description=nil)
       @menu_items = Hash.new()
       if (description == nil)
