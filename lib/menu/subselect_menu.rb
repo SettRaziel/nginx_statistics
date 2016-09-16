@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-13 10:12:17
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-09-14 20:38:17
+# @Last Modified time: 2016-09-16 21:20:10
 
 # This module groups the different menu classes that are used to for the
 # terminal options. The class {Base} provides the basic methods that are needed.
@@ -10,12 +10,14 @@
 module Menu
 
 
+  # menu class that inherits {Menu::Base} to abstract a menu which is used to
+  # query a subselect on an index
   class SubselectMenu < Base
     include Listenable
 
     # initialization
-    # @param [Hash] the sorted n result with the highest ranking mapped as
-    #   (attribute => occurrence)
+    # @param [Hash] ranking the sorted n result with the highest ranking mapped
+    # as (attribute => occurrence)
     def initialize(ranking)
       @menu_description = 'Overview of the top n index results:'
       @ranking = ranking
