@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-15 15:43:54
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-09-10 16:41:28
+# @Last Modified time: 2016-09-19 18:20:51
 
 require_relative '../output/string'
 require_relative '../statistic/statistic.rb'
@@ -35,11 +35,7 @@ class RepositoryListener
   # method to generate the ranking over the index and print its results
   def generate_and_print_index
     ranking = Statistic.generate_ranking_for_index(@data_repository.index, 10)
-    puts 'Output as: number of occurence | entry content'.yellow
-    ranking.each { |entry|
-      print "%5s ".red % [entry[1]]
-      puts "times: #{(entry[0]).to_s.magenta} "
-    }
+    output_ranking(ranking)
   end
 
   # method to generate the required ranking and present a menu to select
@@ -58,16 +54,24 @@ class RepositoryListener
   def generate_and_print_subselect(value, criteria)
     entries = @data_repository.get_entries_from_index_to(value)
     ranking = Statistic.generate_ranking_for(entries, 10, criteria)
-    puts 'Output as: number of occurence | entry content'.yellow
-    ranking.each { |entry|
-      print "%5s ".red % [entry[1]]
-      puts "times: #{(entry[0]).to_s.magenta} "
-    }
+    puts "Ranking for: ".concat(("#{value}").blue)
+    output_ranking(ranking)
   end
 
   private
 
   # @return [DataRepository] the represented repository
   attr :data_repository
+
+  # method to print the calculated ranking in the terminal
+  # @param [Hash] ranking the sorted result with the highest ranking mapped as
+  #   (attribute => occurrence)
+  def output_ranking(ranking)
+    puts 'Output as: number of occurence | entry content'.yellow
+    ranking.each { |entry|
+      print "%5s ".red % [entry[1]]
+      puts "times: #{(entry[0]).to_s.magenta} "
+    }
+  end
 
 end
