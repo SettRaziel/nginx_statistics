@@ -39,7 +39,7 @@ Written with Ruby >= 2.3
 see LICENSE
 
 ## Roadmap
-* adding query against an index to get result for a given key
+* adding query against an index to get result for a given key (done with v0.2.0)
 * graphical output for the total occurrence of keys or other entry attributes
 * evaluations for a given time interval
 
