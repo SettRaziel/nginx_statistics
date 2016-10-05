@@ -1,4 +1,5 @@
 # Nginx Statistics
+<a href="https://codeclimate.com/github/SettRaziel/nginx_statistics"><img src="https://codeclimate.com/github/SettRaziel/nginx_statistics/badges/gpa.svg" /></a>
 
 Ruby program to evaluate the log files of nginx. At the moment the basic script
 shows the top 10 entries of the given entry attribute. These attributs are the
