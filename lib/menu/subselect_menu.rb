@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-13 10:12:17
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-09-16 21:20:10
+# @Last Modified time: 2016-10-18 15:57:02
 
 # This module groups the different menu classes that are used to for the
 # terminal options. The class {Base} provides the basic methods that are needed.
@@ -56,7 +56,7 @@ module Menu
           puts "Invalid input. Please try again."
           return false
         else
-          index_menu = Menu::IndexMenu.new()
+          index_menu = Menu::IndexSelectionMenu.new()
           index_menu.add_listener(:subselect_menu, self)
           index_menu.print_menu
           notify_listeners(:generate_and_print_subselect,

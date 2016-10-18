@@ -1,18 +1,18 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-15 16:06:08
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-09-18 17:32:42
+# @Last Modified time: 2016-10-18 15:49:28
 
 module Menu
 
   # menu class that inherits {Menu::Base} to abstract the menu to select a
   # given status
-  class IndexMenu < Base
+  class IndexSelectionMenu < Base
     include Listenable
 
     # initialization
     def initialize
-      @menu_description = 'Index menu. Select the criteria for the index:'
+      @menu_description = 'Index overview. Select the criteria for the index:'
       super
     end
 

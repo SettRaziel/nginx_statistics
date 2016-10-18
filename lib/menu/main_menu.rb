@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-14 17:40:05
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-09-17 17:54:37
+# @Last Modified time: 2016-10-18 15:51:03
 
 module Menu
 
@@ -31,7 +31,7 @@ module Menu
     def determine_action(input)
       case (input.to_i)
         when 1
-          index_menu = Menu::IndexMenu.new()
+          index_menu = Menu::IndexSelectionMenu.new()
           index_menu.add_listener(:repo_listener, listeners[:repo_listener])
           index_menu.print_menu
         when 2
