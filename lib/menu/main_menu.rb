@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-14 17:40:05
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-18 15:51:03
+# @Last Modified time: 2016-10-20 16:22:28
 
 module Menu
 
@@ -20,10 +20,9 @@ module Menu
 
     # implementation to define the items of the menu
     def define_menu_items
-      add_menu_item('Create different index.', 1)
+      add_menu_item('Create or change index.', 1)
       add_menu_item('Print current index.', 2)
-      add_menu_item('Subselect index.', 3)
-      add_menu_item('Quit.', 4)
+      add_menu_item('Quit.', 3)
     end
 
     # method to specify the actions to a given input
@@ -31,14 +30,12 @@ module Menu
     def determine_action(input)
       case (input.to_i)
         when 1
-          index_menu = Menu::IndexSelectionMenu.new()
+          index_menu = Menu::IndexOverviewMenu.new()
           index_menu.add_listener(:repo_listener, listeners[:repo_listener])
           index_menu.print_menu
         when 2
           notify_listeners(:generate_and_print_index)
         when 3
-          notify_listeners(:initialize_subselect)
-        when 4
           puts "Shutting down. Goodbye ...".yellow
           exit(0)
       end
