@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-15 15:43:54
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-09-19 18:20:51
+# @Last Modified time: 2016-10-23 08:27:34
 
 require_relative '../output/string'
 require_relative '../statistic/statistic.rb'
@@ -33,7 +33,7 @@ class RepositoryListener
   end
 
   # method to generate the ranking over the index and print its results
-  def generate_and_print_index
+  def generate_and_output_index
     ranking = Statistic.generate_ranking_for_index(@data_repository.index, 10)
     output_ranking(ranking)
   end
@@ -51,27 +51,30 @@ class RepositoryListener
   # the index and print the top n ranking of the result
   # @param [Object] value the search value
   # @param [Symbol] criteria the ranking criteria
-  def generate_and_print_subselect(value, criteria)
+  def generate_subselect(value, criteria)
     entries = @data_repository.get_entries_from_index_to(value)
-    ranking = Statistic.generate_ranking_for(entries, 10, criteria)
-    puts "Ranking for: ".concat(("#{value}").blue)
-    output_ranking(ranking)
+    @subselect_ranking = Statistic.generate_ranking_for(entries, 10, criteria)
+    puts "Generated subindex.".yellow
+  end
+
+  # method to print the calculated ranking in the terminal
+  def output_ranking
+    if (@subselect_ranking == nil)
+      raise ArgumentError, "Error: No subindex created".red
+    end
+    puts 'Output as: number of occurence | entry content'.yellow
+    @subselect_ranking.each { |entry|
+      print "%5s ".red % [entry[1]]
+      puts "times: #{(entry[0]).to_s.magenta} "
+    }
   end
 
   private
 
   # @return [DataRepository] the represented repository
   attr :data_repository
-
-  # method to print the calculated ranking in the terminal
-  # @param [Hash] ranking the sorted result with the highest ranking mapped as
-  #   (attribute => occurrence)
-  def output_ranking(ranking)
-    puts 'Output as: number of occurence | entry content'.yellow
-    ranking.each { |entry|
-      print "%5s ".red % [entry[1]]
-      puts "times: #{(entry[0]).to_s.magenta} "
-    }
-  end
+  # @return [Array] the sorted n result with the highest ranking mapped
+    # as (attribute => occurrence) from the subselect
+  attr_accessor :subselect_ranking
 
 end

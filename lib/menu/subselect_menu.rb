@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-13 10:12:17
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-18 15:57:02
+# @Last Modified time: 2016-10-23 08:27:54
 
 # This module groups the different menu classes that are used to for the
 # terminal options. The class {Base} provides the basic methods that are needed.
@@ -16,7 +16,7 @@ module Menu
     include Listenable
 
     # initialization
-    # @param [Hash] ranking the sorted n result with the highest ranking mapped
+    # @param [Array] ranking the sorted n result with the highest ranking mapped
     # as (attribute => occurrence)
     def initialize(ranking)
       @menu_description = 'Overview of the top n index results:'
@@ -59,8 +59,8 @@ module Menu
           index_menu = Menu::IndexSelectionMenu.new()
           index_menu.add_listener(:subselect_menu, self)
           index_menu.print_menu
-          notify_listeners(:generate_and_print_subselect,
-                           @ranking[input.to_i - 1][0], @criteria)
+          notify_listeners(:generate_subselect, @ranking[input.to_i - 1][0],
+                                                @criteria)
       end
     end
 

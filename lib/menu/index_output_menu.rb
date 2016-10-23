@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-10-21 11:39:23
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-21 12:14:29
+# @Last Modified time: 2016-10-23 08:24:27
 
 module Menu
 
@@ -31,7 +31,7 @@ module Menu
     def determine_action(input)
       case (input.to_i)
         when 1
-          notify_listeners(:generate_and_print_index)
+          notify_listeners(:generate_and_output_index)
         when 2
           notify_listeners(:output_ranking)
         when 3 then return
