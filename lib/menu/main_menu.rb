@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-14 17:40:05
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-20 16:22:28
+# @Last Modified time: 2016-10-26 18:31:30
 
 module Menu
 
@@ -21,7 +21,7 @@ module Menu
     # implementation to define the items of the menu
     def define_menu_items
       add_menu_item('Create or change index.', 1)
-      add_menu_item('Print current index.', 2)
+      add_menu_item('Print an index.', 2)
       add_menu_item('Quit.', 3)
     end
 
@@ -34,7 +34,9 @@ module Menu
           index_menu.add_listener(:repo_listener, listeners[:repo_listener])
           index_menu.print_menu
         when 2
-          notify_listeners(:generate_and_print_index)
+          output_menu = Menu::IndexOutputMenu.new()
+          output_menu.add_listener(:repo_listener, listeners[:repo_listener])
+          output_menu.print_menu
         when 3
           puts "Shutting down. Goodbye ...".yellow
           exit(0)
