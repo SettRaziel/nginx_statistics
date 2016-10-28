@@ -1,11 +1,12 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-15 15:43:54
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-23 08:27:34
+# @Last Modified time: 2016-10-28 14:22:11
 
 require_relative '../output/string'
 require_relative '../statistic/statistic.rb'
 require_relative '../menu/menu'
+require_relative '../output/index_diagram/ranking_diagram'
 
 # helper class which create a connection between event handling and the
 # {DataRepository}
@@ -59,14 +60,30 @@ class RepositoryListener
 
   # method to print the calculated ranking in the terminal
   def output_ranking
-    if (@subselect_ranking == nil)
-      raise ArgumentError, "Error: No subindex created".red
-    end
+    check_subselect
     puts 'Output as: number of occurence | entry content'.yellow
     @subselect_ranking.each { |entry|
       print "%5s ".red % [entry[1]]
       puts "times: #{(entry[0]).to_s.magenta} "
     }
+  end
+
+  # method to generate a bar chart based on the source parameter
+  # @param [Symbol] source an indicator for which data a bar chart should be
+  #   generated
+  # @raise [ArgumentError] if the provided source was not found
+  def output_barchart(source)
+    case (source)
+      when :index
+        ranking = Statistic.
+                  generate_ranking_for_index(@data_repository.index, 10)
+        RankingDiagram.new(ranking)
+      when :subselect
+        check_subselect
+        RankingDiagram.new(@subselect_ranking)
+    else
+      raise ArgumentError, "Error: Unknown index type for bar chart"
+    end
   end
 
   private
@@ -76,5 +93,13 @@ class RepositoryListener
   # @return [Array] the sorted n result with the highest ranking mapped
     # as (attribute => occurrence) from the subselect
   attr_accessor :subselect_ranking
+
+  # method to check if a subselect was already generated
+  # @raise [ArgumentError] if no subselect has been generated
+  def check_subselect
+    if (@subselect_ranking == nil)
+      raise ArgumentError, "Error: No subindex created".red
+    end
+  end
 
 end
