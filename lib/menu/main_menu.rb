@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-14 17:40:05
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-26 18:31:30
+# @Last Modified time: 2016-10-29 14:20:27
 
 module Menu
 
@@ -22,7 +22,8 @@ module Menu
     def define_menu_items
       add_menu_item('Create or change index.', 1)
       add_menu_item('Print an index.', 2)
-      add_menu_item('Quit.', 3)
+      add_menu_item('Generate bar chart.', 3)
+      add_menu_item('Quit.', 4)
     end
 
     # method to specify the actions to a given input
@@ -38,6 +39,10 @@ module Menu
           output_menu.add_listener(:repo_listener, listeners[:repo_listener])
           output_menu.print_menu
         when 3
+          chart_menu = Menu::DiagramMenu.new()
+          chart_menu.add_listener(:repo_listener, listeners[:repo_listener])
+          chart_menu.print_menu
+        when 4
           puts "Shutting down. Goodbye ...".yellow
           exit(0)
       end
