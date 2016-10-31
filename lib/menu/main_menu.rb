@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-14 17:40:05
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-29 14:20:27
+# @Last Modified time: 2016-10-31 16:11:46
 
 module Menu
 
@@ -18,6 +18,8 @@ module Menu
       @menu_description = 'Main menu. Select operation:'
     end
 
+    private
+
     # implementation to define the items of the menu
     def define_menu_items
       add_menu_item('Create or change index.', 1)
@@ -30,22 +32,20 @@ module Menu
     # @param [String] input the user input
     def determine_action(input)
       case (input.to_i)
-        when 1
-          index_menu = Menu::IndexOverviewMenu.new()
-          index_menu.add_listener(:repo_listener, listeners[:repo_listener])
-          index_menu.print_menu
-        when 2
-          output_menu = Menu::IndexOutputMenu.new()
-          output_menu.add_listener(:repo_listener, listeners[:repo_listener])
-          output_menu.print_menu
-        when 3
-          chart_menu = Menu::DiagramMenu.new()
-          chart_menu.add_listener(:repo_listener, listeners[:repo_listener])
-          chart_menu.print_menu
+        when 1 then prepare_menu(Menu::IndexOverviewMenu.new())
+        when 2 then prepare_menu(Menu::IndexOutputMenu.new())
+        when 3 then prepare_menu(Menu::DiagramMenu.new())
         when 4
           puts "Shutting down. Goodbye ...".yellow
           exit(0)
       end
+    end
+
+    # method to register the listener to a given menu and print its items
+    # @param [Menu::Base] menu the generated menu
+    def prepare_menu(menu)
+      menu.add_listener(:repo_listener, listeners[:repo_listener])
+      menu.print_menu
     end
 
   end
