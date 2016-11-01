@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-10-19 22:36:51
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-19 23:26:04
+# @Last Modified time: 2016-11-01 19:46:37
 
 module Menu
 
@@ -18,6 +18,8 @@ module Menu
       super
       @menu_description = 'Index operation menu. Select operation:'
     end
+
+    private
 
     # implementation to define the items of the menu
     def define_menu_items
