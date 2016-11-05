@@ -1,13 +1,14 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-14 18:05:20
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-26 15:18:08
+# @Last Modified time: 2016-11-05 19:56:39
 
 # module to implement simple event handling and notifying
 module Listenable
 
   # method to get get alle listener or create a new Hash, when not listener
   # is present
+  # @return [Hash] the hash for storing listener to an object
   def listeners
     @listeners ||= Hash.new()
   end

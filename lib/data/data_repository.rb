@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-08 17:05:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-09-09 19:00:08
+# @Last Modified time: 2016-11-05 19:47:36
 
 require_relative 'file_reader'
 require_relative 'entry'
@@ -101,6 +101,7 @@ class DataRepository
   # method to determine the mapping to the given attribute of the {Entry}
   # @param [Symbol] key the mapping key
   # @param [Entry] entry the actual considered entry
+  # @return [Object] the matching object from the {Entry}
   def map_key_to_attribute(key, entry)
     case key
       when :source then entry.source

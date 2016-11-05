@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-10-03 23:30:13
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-17 17:03:37
+# @Last Modified time: 2016-11-05 10:32:39
 
 require_relative 'terminal_size'
 
@@ -71,6 +71,8 @@ class RankingDiagram
   end
 
   # helper method to calculate the number of all considered entries
+  # @param [Array] ranking an array storing the values and the numbers of
+  #   occurences in nested arrays
   def accumulate_numbers(ranking)
     @count = 0
     ranking.each { |entry|
