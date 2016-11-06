@@ -34,14 +34,18 @@ Written with Ruby >= 2.3
 * MAC: not tested
 
 ## Requirements
-* none
+* csv for file reading
 
 ## License
 see LICENSE
 
 ## Roadmap
 * adding query against an index to get result for a given key (done with v0.2.0)
-* graphical output for the total occurrence of keys or other entry attributes
+* graphical output for the total occurrence of keys (done as bar chart)
+* graphical output for other entry attributes (atm subselect bar chart)
+* variable number for top entries
 * evaluations for a given time interval
+* output of selected entries
+* file output of relevant results
 
 created by: Benjamin Held
