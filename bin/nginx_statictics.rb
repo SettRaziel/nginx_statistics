@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-06-07 09:15:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-01 14:15:16
+# @Last Modified time: 2016-11-13 16:36:34
 
 require_relative '../lib/data/data_repository'
 require_relative '../lib/parameter/parameter_repository'
@@ -12,13 +12,13 @@ require_relative '../lib/menu/menu'
 
 # call to print version number and author
 def print_version
-  puts 'nginx_statisic version 0.2.0'.yellow
+  puts 'nginx_statisic version 0.3.0'.yellow
   puts 'Created by Benjamin Held (May 2016)'.yellow
 end
 
 #-------------------------------------------------------------------------------
 # Nginx Statistics Script
-# Version 0.2.0
+# Version 0.3.0
 # created by Benjamin Held, May 2016
 
 if (ARGV.length < 1)
