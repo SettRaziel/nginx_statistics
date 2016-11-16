@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-14 21:10:58
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-30 16:00:26
+# @Last Modified time: 2016-11-16 19:13:46
 
 require_relative '../output/string'
 
@@ -41,6 +41,8 @@ module Parameter
         when '--source'           then set_mode(:source)
         when '--status'           then set_mode(:http_status)
         when '--request'          then set_mode(:http_request)
+        when '-i'
+          create_argument_entry(:index, unflagged_arguments)
         when '-v', '--version'    then @parameters[:version] = true
         when '-h', '--help'       then check_and_set_helpvalue
         when /-[a-z]|--[a-z]+/ then raise_invalid_parameter(arg)
@@ -56,6 +58,14 @@ module Parameter
     # @raise [ArgumentError] if an invalid argument is provided
     def raise_invalid_parameter(arg)
       raise ArgumentError, " Error: invalid argument: #{arg}".red
+    end
+
+    # creates a new entry for a parameter with one argument
+    # @param [Symbol] symbol the symbol of the argument
+    # @param [Array] unflagged_arguments the argument array
+    def create_argument_entry(symbol, unflagged_arguments)
+      @parameters[symbol] = nil
+      unflagged_arguments.unshift(symbol)
     end
 
     # method to check and set the requested working mode
