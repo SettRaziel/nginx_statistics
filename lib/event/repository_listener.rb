@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-07-15 15:43:54
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-28 14:22:11
+# @Last Modified time: 2017-02-16 20:07:43
 
 require_relative '../output/string'
 require_relative '../statistic/statistic.rb'
@@ -59,13 +59,20 @@ class RepositoryListener
   end
 
   # method to print the calculated ranking in the terminal
-  def output_ranking
-    check_subselect
+  # @param [Hash] ranking the sorted result with the highest ranking mapped as
+  #   (attribute => occurrence)
+  def output_ranking(ranking)
     puts 'Output as: number of occurence | entry content'.yellow
-    @subselect_ranking.each { |entry|
+    ranking.each { |entry|
       print "%5s ".red % [entry[1]]
       puts "times: #{(entry[0]).to_s.magenta} "
     }
+  end
+
+  # method to print the calculated ranking in the terminal
+  def output_index_ranking
+    check_subselect
+    output_ranking(@subselect_ranking)
   end
 
   # method to generate a bar chart based on the source parameter

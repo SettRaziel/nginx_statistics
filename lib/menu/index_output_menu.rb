@@ -1,7 +1,7 @@
 # @Author: Benjamin Held
 # @Date:   2016-10-21 11:39:23
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-11-01 19:43:12
+# @Last Modified time: 2017-02-16 20:03:44
 
 module Menu
 
@@ -35,7 +35,7 @@ module Menu
         when 1
           notify_listeners(:generate_and_output_index)
         when 2
-          notify_listeners(:output_ranking)
+          notify_listeners(:output_index_ranking)
         when 3 then return
       end
     end
