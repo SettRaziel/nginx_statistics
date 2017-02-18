@@ -5,6 +5,8 @@ Ruby program to evaluate the log files of nginx. At the moment the basic script
 shows the top 10 entries of the given entry attribute. These attributs are the
 timestamp of the entry, the source ip, the http status and the http request.
 
+Current version: v0.3.0
+
 ## Usage & Help
 ```
 script usage: ruby <script> <criteria> <filename>
