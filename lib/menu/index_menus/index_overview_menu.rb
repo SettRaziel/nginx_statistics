@@ -1,16 +1,16 @@
 # @Author: Benjamin Held
-# @Date:   2016-10-21 11:39:23
+# @Date:   2016-10-19 22:36:51
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2017-02-16 20:03:44
+# @Last Modified time: 2017-02-25 22:26:35
 
 module Menu
 
-  require_relative '../event/listenable'
-  require_relative '../output/string'
+  require_relative '../../event/listenable'
+  require_relative '../../output/string'
 
-  # menu class that inherits {Menu::Base} to create a menu for creating output
-  # of a selected index
-  class IndexOutputMenu < Base
+  # menu class that inherits {Menu::Base} to create a menu for the provided
+  # index creation options
+  class IndexOverviewMenu < Base
     include Listenable
 
     # initialization
@@ -23,8 +23,8 @@ module Menu
 
     # implementation to define the items of the menu
     def define_menu_items
-      add_menu_item('Output main index.', 1)
-      add_menu_item('Output subselect index.', 2)
+      add_menu_item('Create different index.', 1)
+      add_menu_item('Subselect index.', 2)
       add_menu_item('Return to previous menu.', 3)
     end
 
@@ -33,9 +33,11 @@ module Menu
     def determine_action(input)
       case (input.to_i)
         when 1
-          notify_listeners(:generate_and_output_index)
+          index_menu = Menu::IndexSelectionMenu.new()
+          index_menu.add_listener(:repo_listener, listeners[:repo_listener])
+          index_menu.print_menu
         when 2
-          notify_listeners(:output_index_ranking)
+          notify_listeners(:initialize_subselect)
         when 3 then return
       end
     end
