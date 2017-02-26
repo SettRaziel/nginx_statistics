@@ -1,12 +1,12 @@
 # @Author: Benjamin Held
 # @Date:   2016-04-14 21:10:58
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-11-16 19:13:46
-
-require_relative '../output/string'
+# @Last Modified time: 2017-02-26 19:39:51
 
 # This module holds classes that read and store the usable script arguments
 module Parameter
+
+require_relative '../output/string'
 
   # Parameter repository to store the valid parameters of the script.
   # {#initialize} gets the provided parameters and fills a hash which
@@ -50,7 +50,7 @@ module Parameter
         check_and_set_argument(unflagged_arguments.shift, arg)
       end
 
-      return (unflagged_arguments.size == 0)
+      (unflagged_arguments.size == 0)
     end
 
     # error message in the case of an invalid argument
@@ -66,6 +66,7 @@ module Parameter
     def create_argument_entry(symbol, unflagged_arguments)
       @parameters[symbol] = nil
       unflagged_arguments.unshift(symbol)
+      nil
     end
 
     # method to check and set the requested working mode
@@ -77,6 +78,7 @@ module Parameter
       else
         raise ArgumentError, 'Error: Mode has already been set.'.red
       end
+      nil
     end
 
     # method to check if a mode has been specified in the input parameters
@@ -85,6 +87,7 @@ module Parameter
           !(@parameters[:help] || @parameters[:version]))
           puts 'Warning: No mode has been specified. Using --status.'.yellow
       end
+      nil
     end
 
     # checks if the filename has already been read
@@ -98,6 +101,7 @@ module Parameter
                 " Error: found filepath: #{@parameters[:file]}," \
                 " but there are other arguments left.".red
       end
+      nil
     end
 
     # check if a parameter holds one or more arguments and adds the argument
@@ -115,6 +119,7 @@ module Parameter
       else
         raise ArgumentError, ' Error: invalid combination of parameters.'.red
       end
+      nil
     end
 
     # checks if the help parameter was entered with a parameter of if the
@@ -127,6 +132,7 @@ module Parameter
         # help without parameter => global help
         @parameters[:help] = true
       end
+      nil
     end
 
   end
