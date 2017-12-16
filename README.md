@@ -31,7 +31,7 @@ The documentation can also be found online [here](https://bheld.eu/doc/nginxstat
 Written with Ruby >= 2.3
 
 ## Tested
-* Linux: running with Ruby >= 2.3
+* Linux: running on ArchLinux with Ruby >= 2.3
 * Windows: not tested
 * MAC: not tested
 
