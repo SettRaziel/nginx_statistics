@@ -1,12 +1,12 @@
 # @Author: Benjamin Held
 # @Date:   2016-06-07 09:15:43
 # @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-11-13 16:36:34
+# @Last Modified time: 2018-01-29 14:54:09
 
 require_relative '../lib/data/data_repository'
 require_relative '../lib/parameter/parameter_repository'
 require_relative '../lib/output/help_output'
-require_relative '../lib/output/string'
+require_relative '../lib/string/string'
 require_relative '../lib/event/repository_listener'
 require_relative '../lib/menu/menu'
 
