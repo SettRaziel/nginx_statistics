@@ -50,4 +50,4 @@ see LICENSE
 * output of selected entries
 * file output of relevant results
 
-created by: Benjamin Held
+created by: Benjamin Held, 2016
