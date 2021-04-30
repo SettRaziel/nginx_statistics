@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-05-24 12:52:28
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-01 16:43:55
-
 module Entry
 
     # Factory class to retrieve the required attribute to the given symbol

@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-06-07 09:15:43
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2018-01-29 14:54:09
-
 require_relative '../lib/data/data_repository'
 require_relative '../lib/parameter/parameter_repository'
 require_relative '../lib/output/help_output'

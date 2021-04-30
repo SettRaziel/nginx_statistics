@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-01-18 14:29:41
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-01 18:01:16
-
 require_relative 'string'
 
 # Output class for help text

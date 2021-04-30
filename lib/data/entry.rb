@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-04-09 22:01:56
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-05-26 11:42:00
-
 require 'time'
 
 module Entry

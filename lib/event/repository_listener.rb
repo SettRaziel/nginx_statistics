@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-07-15 15:43:54
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2017-02-16 20:07:43
-
 require_relative '../output/string'
 require_relative '../statistic/statistic.rb'
 require_relative '../menu/menu'

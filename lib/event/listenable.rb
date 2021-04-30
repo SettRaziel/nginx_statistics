@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-07-14 18:05:20
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-11-05 19:56:39
-
 # module to implement simple event handling and notifying
 module Listenable
 

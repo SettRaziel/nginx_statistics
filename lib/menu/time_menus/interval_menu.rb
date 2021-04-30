@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2017-04-04 20:08:04
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2017-07-09 19:28:27
-
 # menu class that inherits {Menu::Base} to create a menu for selecting time
 # intervals
 class IntervalMenu < Base

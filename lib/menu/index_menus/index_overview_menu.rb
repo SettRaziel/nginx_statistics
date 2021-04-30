@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-10-19 22:36:51
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2017-02-25 22:26:35
-
 module Menu
 
   require_relative '../../event/listenable'

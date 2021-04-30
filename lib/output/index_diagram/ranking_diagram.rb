@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-10-03 23:30:13
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-11-05 10:32:39
-
 require_relative 'terminal_size'
 
 # logic class to draw a simple bar chart for the given ranking

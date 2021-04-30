@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-04-14 21:10:58
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2017-02-26 19:39:51
-
 # This module holds classes that read and store the usable script arguments
 module Parameter
 

@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2015-05-30 21:00:25
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-07-17 12:05:22
-
 require 'csv'
 
 # Simple file reader using the csv library to read a csv file

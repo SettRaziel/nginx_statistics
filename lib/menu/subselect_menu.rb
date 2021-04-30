@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-07-13 10:12:17
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-23 08:27:54
-
 # This module groups the different menu classes that are used to for the
 # terminal options. The class {Base} provides the basic methods that are needed.
 # Child classes only need to implement the method {Base#define_menu_items} and

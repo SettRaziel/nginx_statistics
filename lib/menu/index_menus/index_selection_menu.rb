@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-07-15 16:06:08
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-10-18 15:49:28
-
 module Menu
 
   # menu class that inherits {Menu::Base} to abstract the menu to select a

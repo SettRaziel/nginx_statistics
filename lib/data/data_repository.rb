@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-04-08 17:05:43
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-11-05 19:47:36
-
 require_relative 'file_reader'
 require_relative 'entry'
 require_relative '../output/string'

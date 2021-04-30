@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2015-05-30 08:57:40
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2015-09-30 17:38:05
-
 # Extension of the class String to modify a String in color and type
 # Note: \e stands for the esc code
 # Note: not all modifications are available for every terminal application

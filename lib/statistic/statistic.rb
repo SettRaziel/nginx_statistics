@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2016-04-19 21:31:13
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2016-06-30 17:06:39
-
 # module to generate the required statisitc result for the requested attribute
 module Statistic
 

@@ -1,8 +1,3 @@
-# @Author: Benjamin Held
-# @Date:   2017-02-16 19:51:32
-# @Last Modified by:   Benjamin Held
-# @Last Modified time: 2017-02-17 17:27:36
-
 module Menu
 
   # abstract parent class for the menu hierarchy
