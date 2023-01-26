@@ -7,3 +7,6 @@ files/
 # ignore documentation files
 .yardoc/
 doc/
+
+# ignore gem file
+Gemfile.lock
