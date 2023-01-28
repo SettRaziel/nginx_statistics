@@ -1,4 +1,4 @@
-require_relative 'file_reader'
+require 'ruby_utils/file_reader'
 require_relative 'entry'
 require_relative '../output/string'
 
@@ -111,7 +111,7 @@ class DataRepository
   # @param [String] filename filepath
   # @return [Array] the data of the file as strings
   def read_file(filename)
-    FileReader.new(filename, ' ').data
+    RubyUtils::FileReader.new(filename, ' ').data
   end
 
 end
