@@ -1,6 +1,6 @@
 require 'ruby_utils/file_reader'
+require 'ruby_utils/string'
 require_relative 'entry'
-require_relative '../output/string'
 
 # This class serves as a data repository storing the read data and handling the
 # meta information

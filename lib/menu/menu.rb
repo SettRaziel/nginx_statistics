@@ -1,6 +1,6 @@
 module Menu
 
-  require_relative '../output/string'
+  require 'ruby_utils/string'
 
   require_relative 'base_menu'
   require_relative 'diagram_menu'

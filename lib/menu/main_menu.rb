@@ -1,7 +1,7 @@
 module Menu
 
+  require 'ruby_utils/string'
   require_relative '../event/listenable'
-  require_relative '../output/string'
 
   # menu class that inherits {Menu::Base} to abstract the main menu
   class MainMenu < Base

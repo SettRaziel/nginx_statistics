@@ -1,4 +1,4 @@
-require_relative '../output/string'
+require 'ruby_utils/string'
 require_relative '../statistic/statistic.rb'
 require_relative '../menu/menu'
 require_relative '../output/index_diagram/ranking_diagram'

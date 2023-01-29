@@ -1,7 +1,7 @@
+require 'ruby_utils/string'
 require_relative '../lib/data/data_repository'
 require_relative '../lib/parameter/parameter_repository'
 require_relative '../lib/output/help_output'
-require_relative '../lib/string/string'
 require_relative '../lib/event/repository_listener'
 require_relative '../lib/menu/menu'
 
@@ -33,7 +33,6 @@ begin
   else
     dr = DataRepository.new(parameters.parameters[:file],
                             parameters.parameters[:mode])
-
     # necessary to clear the script parameter, which has already been
     # processed by the parameter_repository
     ARGF.argv.clear

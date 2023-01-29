@@ -1,4 +1,4 @@
-require_relative 'string'
+require 'ruby_utils/string'
 
 # Output class for help text
 class HelpOutput

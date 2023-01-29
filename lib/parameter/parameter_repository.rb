@@ -1,7 +1,7 @@
 # This module holds classes that read and store the usable script arguments
 module Parameter
 
-require_relative '../output/string'
+require 'ruby_utils/string'
 
   # Parameter repository to store the valid parameters of the script.
   # {#initialize} gets the provided parameters and fills a hash which
