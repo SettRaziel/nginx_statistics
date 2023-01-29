@@ -1,7 +1,7 @@
-require 'ruby_utils/string'
-require_relative '../statistic/statistic.rb'
-require_relative '../menu/menu'
-require_relative '../output/index_diagram/ranking_diagram'
+require "ruby_utils/string"
+require_relative "../statistic/statistic.rb"
+require_relative "../menu/menu"
+require_relative "../output/index_diagram/ranking_diagram"
 
 # helper class which create a connection between event handling and the
 # {DataRepository}
@@ -57,7 +57,7 @@ class RepositoryListener
   # @param [Hash] ranking the sorted result with the highest ranking mapped as
   #   (attribute => occurrence)
   def output_ranking(ranking)
-    puts 'Output as: number of occurence | entry content'.yellow
+    puts "Output as: number of occurence | entry content".yellow
     ranking.each { |entry|
       print "%5s ".red % [entry[1]]
       puts "times: #{(entry[0]).to_s.magenta} "

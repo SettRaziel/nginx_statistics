@@ -21,7 +21,7 @@ module Menu
         puts "(#{key}) #{value}"
       }
 
-      determine_action(get_entry('Select option: '))
+      determine_action(get_entry("Select option: "))
     end
 
     private
@@ -35,7 +35,7 @@ module Menu
     # @raise [NotImplementedError] if the subclass does not have this method
     def define_menu_items
       fail NotImplementedError, " Error: the subclass " \
-        "#{self.name.split('::').last} needs to implement the method: " \
+        "#{self.name.split("::").last} needs to implement the method: " \
         "define_menu_items from its base class".red
     end
 
@@ -44,14 +44,14 @@ module Menu
     # @raise [NotImplementedError] if the subclass does not have this method
     def determine_action(input)
       fail NotImplementedError, " Error: the subclass " \
-        "#{self.name.split('::').last} needs to implement the method: " \
+        "#{self.name.split("::").last} needs to implement the method: " \
         "determine_action from its base class".red
     end
 
     # default behavior when a user provides not valid input
     def handle_wrong_option
-      print 'Option not available. '.red
-      determine_action(get_entry('Select option: '))
+      print "Option not available. ".red
+      determine_action(get_entry("Select option: "))
     end
 
     # method to add a given key/value pair to the menu hash

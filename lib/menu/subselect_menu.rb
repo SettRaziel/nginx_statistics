@@ -14,7 +14,7 @@ module Menu
     # @param [Array] ranking the sorted n result with the highest ranking mapped
     # as (attribute => occurrence)
     def initialize(ranking)
-      @menu_description = 'Overview of the top n index results:'
+      @menu_description = "Overview of the top n index results:"
       @ranking = ranking
       super
     end

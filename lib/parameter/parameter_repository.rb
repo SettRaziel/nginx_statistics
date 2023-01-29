@@ -1,7 +1,7 @@
 # This module holds classes that read and store the usable script arguments
 module Parameter
 
-require 'ruby_utils/string'
+require "ruby_utils/string"
 
   # Parameter repository to store the valid parameters of the script.
   # {#initialize} gets the provided parameters and fills a hash which
@@ -32,14 +32,14 @@ require 'ruby_utils/string'
     # @return [boolean] if the size of the argument array is zero or not
     def process_argument(arg, unflagged_arguments)
       case arg
-        when '--timestamp'        then set_mode(:timestamp)
-        when '--source'           then set_mode(:source)
-        when '--status'           then set_mode(:http_status)
-        when '--request'          then set_mode(:http_request)
-        when '-i'
+        when "--timestamp"        then set_mode(:timestamp)
+        when "--source"           then set_mode(:source)
+        when "--status"           then set_mode(:http_status)
+        when "--request"          then set_mode(:http_request)
+        when "-i"
           create_argument_entry(:index, unflagged_arguments)
-        when '-v', '--version'    then @parameters[:version] = true
-        when '-h', '--help'       then check_and_set_helpvalue
+        when "-v", "--version"    then @parameters[:version] = true
+        when "-h", "--help"       then check_and_set_helpvalue
         when /-[a-z]|--[a-z]+/ then raise_invalid_parameter(arg)
       else
         check_and_set_argument(unflagged_arguments.shift, arg)
@@ -71,7 +71,7 @@ require 'ruby_utils/string'
       if (!@parameters[:mode])
         @parameters[:mode] = symbol
       else
-        raise ArgumentError, 'Error: Mode has already been set.'.red
+        raise ArgumentError, "Error: Mode has already been set.".red
       end
       nil
     end
@@ -80,7 +80,7 @@ require 'ruby_utils/string'
     def has_set_mode?
       if (!@parameters[:mode] &&
           !(@parameters[:help] || @parameters[:version]))
-          puts 'Warning: No mode has been specified. Using --status.'.yellow
+          puts "Warning: No mode has been specified. Using --status.".yellow
       end
       nil
     end
@@ -112,7 +112,7 @@ require 'ruby_utils/string'
           @parameters[arg_key] = arg
         end
       else
-        raise ArgumentError, ' Error: invalid combination of parameters.'.red
+        raise ArgumentError, " Error: invalid combination of parameters.".red
       end
       nil
     end

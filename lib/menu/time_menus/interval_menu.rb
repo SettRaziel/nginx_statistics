@@ -6,17 +6,17 @@ class IntervalMenu < Base
   # initialization
   def initialize
     super
-    @menu_description = 'Interval selection menu. Specify a time interval:'
+    @menu_description = "Interval selection menu. Specify a time interval:"
   end
 
   private
 
   # implementation to define the items of the menu
   def define_menu_items
-    add_menu_item('This month.', 1)
-    add_menu_item('This week.', 2)
-    add_menu_item('Custom interval.', 3)
-    add_menu_item('Return to previous menu.', 4)
+    add_menu_item("This month.", 1)
+    add_menu_item("This week.", 2)
+    add_menu_item("Custom interval.", 3)
+    add_menu_item("Return to previous menu.", 4)
   end
 
   # method to specify the actions to a given input
