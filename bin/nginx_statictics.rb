@@ -1,14 +1,14 @@
-require 'ruby_utils/string'
-require_relative '../lib/data/data_repository'
-require_relative '../lib/parameter/parameter_repository'
-require_relative '../lib/output/help_output'
-require_relative '../lib/event/repository_listener'
-require_relative '../lib/menu/menu'
+require "ruby_utils/string"
+require_relative "../lib/data/data_repository"
+require_relative "../lib/parameter/parameter_repository"
+require_relative "../lib/output/help_output"
+require_relative "../lib/event/repository_listener"
+require_relative "../lib/menu/menu"
 
 # call to print version number and author
 def print_version
-  puts 'nginx_statisic version 0.3.0'.yellow
-  puts 'Created by Benjamin Held (May 2016)'.yellow
+  puts "nginx_statisic version 0.3.0".yellow
+  puts "Created by Benjamin Held (May 2016)".yellow
 end
 
 #-------------------------------------------------------------------------------
@@ -17,9 +17,9 @@ end
 # created by Benjamin Held, May 2016
 
 if (ARGV.length < 1)
-  puts 'Invalid number of arguments: usage ruby <script> ' \
-       '<criteria> <filename>'.red
-  puts 'For help type: ruby <script> --help'.green
+  puts "Invalid number of arguments: usage ruby <script> " \
+       "<criteria> <filename>".red
+  puts "For help type: ruby <script> --help".green
   exit(0)
 end
 
@@ -47,6 +47,6 @@ begin
   end
 rescue StandardError => e
   puts e.message
-  puts 'For help type: ruby <script> --help'.green
+  puts "For help type: ruby <script> --help".green
   exit(0)
 end
