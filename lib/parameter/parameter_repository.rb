@@ -1,8 +1,6 @@
 # This module holds classes that read and store the usable script arguments
 module Parameter
 
-require "ruby_utils/parameter"
-
   # Parameter repository to store the valid parameters of the script.
   # {#initialize} gets the provided parameters and fills a hash which
   # grants access to the provided parameters and their arguments
