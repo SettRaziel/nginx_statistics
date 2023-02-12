@@ -1,6 +1,6 @@
 require "ruby_utils/string"
 require_relative "../lib/data/data_repository"
-require_relative "../lib/parameter/parameter_repository"
+require_relative "../lib/parameter"
 require_relative "../lib/output/help_output"
 require_relative "../lib/event/repository_listener"
 require_relative "../lib/menu/menu"
@@ -24,15 +24,15 @@ if (ARGV.length < 1)
 end
 
 begin
-  parameters = Parameter::ParameterRepository.new(ARGV)
+  parameter_handler = Parameter::ParameterHandler.new(ARGV)
 
-  if (parameters.parameters[:help])
-    HelpOutput.print_help_for(parameters.parameters[:help])
-  elsif (parameters.parameters[:version])
+  if (parameter_handler.repository.parameters[:help])
+    HelpOutput.print_help_for(parameter_handler.repository.parameters[:help])
+  elsif (parameter_handler.repository.parameters[:version])
     print_version
   else
-    dr = DataRepository.new(parameters.parameters[:file],
-                            parameters.parameters[:mode])
+    dr = DataRepository.new(parameter_handler.repository.parameters[:file],
+                            parameter_handler.repository.parameters[:mode])
     # necessary to clear the script parameter, which has already been
     # processed by the parameter_repository
     ARGF.argv.clear
