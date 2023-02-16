@@ -5,13 +5,6 @@ module Parameter
   # {#initialize} gets the provided parameters and fills a hash which
   # grants access to the provided parameters and their arguments
   class ParameterRepository < RubyUtils::Parameter::BaseParameterRepository
-  
-    # initialization
-    # @param [Array] arguments Array of input parameters
-    def initialize(arguments)
-      super(arguments)
-      has_set_mode?
-    end
 
     private
 
@@ -47,15 +40,6 @@ module Parameter
         @parameters[:mode] = symbol
       else
         raise ArgumentError, "Error: Mode has already been set.".red
-      end
-      nil
-    end
-
-    # method to check if a mode has been specified in the input parameters
-    def has_set_mode?
-      if (!@parameters[:mode] &&
-          !(@parameters[:help] || @parameters[:version]))
-          puts "Warning: No mode has been specified. Using --status.".yellow
       end
       nil
     end

@@ -24,7 +24,9 @@ module Parameter
       check_mandatory_parameter(:file)
 
       # check mandatory mode parameter
-      #check_mandatory_parameter(:mode)
+      if (!@repository.parameters[:mode])
+        @repository.parameters[:mode] = :http_status
+      end
     end
 
   end
