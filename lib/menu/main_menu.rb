@@ -1,7 +1,7 @@
 module Menu
 
-  require_relative '../event/listenable'
-  require_relative '../output/string'
+  require "ruby_utils/string"
+  require_relative "../event/listenable"
 
   # menu class that inherits {Menu::Base} to abstract the main menu
   class MainMenu < Base
@@ -10,17 +10,17 @@ module Menu
     # initialization
     def initialize
       super
-      @menu_description = 'Main menu. Select operation:'
+      @menu_description = "Main menu. Select operation:"
     end
 
     private
 
     # implementation to define the items of the menu
     def define_menu_items
-      add_menu_item('Create or change index.', 1)
-      add_menu_item('Print an index.', 2)
-      add_menu_item('Generate bar chart.', 3)
-      add_menu_item('Quit.', 4)
+      add_menu_item("Create or change index.", 1)
+      add_menu_item("Print an index.", 2)
+      add_menu_item("Generate bar chart.", 3)
+      add_menu_item("Quit.", 4)
     end
 
     # method to specify the actions to a given input

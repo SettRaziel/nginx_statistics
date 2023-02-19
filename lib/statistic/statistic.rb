@@ -1,7 +1,7 @@
 # module to generate the required statisitc result for the requested attribute
 module Statistic
 
-  require_relative '../data/entry_attribute_factory'
+  require_relative "../data/entry_attribute_factory"
 
   # method to generate a top n ranking for the given criteria
   # @param [Array] data an array holding the selected entries

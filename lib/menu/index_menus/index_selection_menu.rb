@@ -7,7 +7,7 @@ module Menu
 
     # initialization
     def initialize
-      @menu_description = 'Index overview. Select the criteria for the index:'
+      @menu_description = "Index overview. Select the criteria for the index:"
       super
     end
 
@@ -15,10 +15,10 @@ module Menu
 
     # implementation to define the items of the menu
     def define_menu_items
-      add_menu_item('Http request', 1)
-      add_menu_item('Http status', 2)
-      add_menu_item('Sourceadress', 3)
-      add_menu_item('Timestamp', 4)
+      add_menu_item("Http request", 1)
+      add_menu_item("Http status", 2)
+      add_menu_item("Sourceadress", 3)
+      add_menu_item("Timestamp", 4)
     end
 
     # method to specify the actions to a given input

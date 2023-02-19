@@ -1,7 +1,7 @@
 module Menu
 
-  require_relative '../../event/listenable'
-  require_relative '../../output/string'
+  require "ruby_utils/string"
+  require_relative "../../event/listenable"
 
   # menu class that inherits {Menu::Base} to create a menu for creating output
   # of a selected index
@@ -11,16 +11,16 @@ module Menu
     # initialization
     def initialize
       super
-      @menu_description = 'Index operation menu. Select operation:'
+      @menu_description = "Index operation menu. Select operation:"
     end
 
     private
 
     # implementation to define the items of the menu
     def define_menu_items
-      add_menu_item('Output main index.', 1)
-      add_menu_item('Output subselect index.', 2)
-      add_menu_item('Return to previous menu.', 3)
+      add_menu_item("Output main index.", 1)
+      add_menu_item("Output subselect index.", 2)
+      add_menu_item("Return to previous menu.", 3)
     end
 
     # method to specify the actions to a given input

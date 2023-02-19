@@ -1,6 +1,6 @@
-require_relative 'file_reader'
-require_relative 'entry'
-require_relative '../output/string'
+require "ruby_utils/file_reader"
+require "ruby_utils/string"
+require_relative "entry"
 
 # This class serves as a data repository storing the read data and handling the
 # meta information
@@ -32,7 +32,7 @@ class DataRepository
     if (!@index.empty?)
       @index[key].size
     else
-      puts 'Error: index is empty. No index has been created!'.red
+      puts "Error: index is empty. No index has been created!".red
     end
   end
 
@@ -111,7 +111,7 @@ class DataRepository
   # @param [String] filename filepath
   # @return [Array] the data of the file as strings
   def read_file(filename)
-    FileReader.new(filename, ' ').data
+    RubyUtils::FileReader.new(filename, " ").data
   end
 
 end

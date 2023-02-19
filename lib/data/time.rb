@@ -1,4 +1,4 @@
-require 'date'
+require "date"
 
 # Extension of the ruby Time class to provide necessary operations on a {Time}
 # object

@@ -1,4 +1,4 @@
-require_relative 'terminal_size'
+require_relative "terminal_size"
 
 # logic class to draw a simple bar chart for the given ranking
 class RankingDiagram

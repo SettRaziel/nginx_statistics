@@ -1,4 +1,4 @@
-require 'time'
+require "time"
 
 module Entry
 
@@ -49,7 +49,7 @@ module Entry
     # @return [Time] the created time object
     def parse_timestamp(time_string, time_zone)
       time_string.slice!(0)
-      time_zone.chomp(']')
+      time_zone.chomp("]")
       Time.strptime(time_string.concat(time_zone), "%d/%b/%Y:%T%z")
     end
 
