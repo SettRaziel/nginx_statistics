@@ -1,5 +1,6 @@
 require "time"
 
+# Module that holds the entry object and its factory classe
 module Entry
 
   # Entity class to represent a standard logging entry of an nginx logfile
