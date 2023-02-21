@@ -7,13 +7,13 @@ require_relative "../lib/menu/menu"
 
 # call to print version number and author
 def print_version
-  puts "nginx_statisic version 0.3.0".yellow
+  puts "nginx_statisic version 0.4.0".yellow
   puts "Created by Benjamin Held (May 2016)".yellow
 end
 
 #-------------------------------------------------------------------------------
 # Nginx Statistics Script
-# Version 0.3.0
+# Version 0.4.0
 # created by Benjamin Held, May 2016
 
 if (ARGV.length < 1)
